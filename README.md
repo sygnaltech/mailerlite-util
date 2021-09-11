@@ -24,7 +24,7 @@ You can embed our library directly from the [JSDelivr](https://en.wikipedia.org/
 Add to your HTML page `<head>` section.
 
 ```
-<script src="https://cdn.jsdelivr.net/gh/sygnaltech/mailerlite-util@1.0/dist/mailerlite-utils.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/sygnaltech/mailerlite-util@1.0/dist/mailerlite-util.min.js"></script>
 ```
 
 Note JSDelivr's [versioning](https://www.jsdelivr.com/features) support- if we introduce a breaking change, we'll update the minor [version number](https://gitversion.readthedocs.io/en/latest/more-info/version-increments/) so that it does not affect production sites. Therefore for simplicity, specify the major and minor version you want as in the example above.
