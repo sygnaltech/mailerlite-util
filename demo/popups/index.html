@@ -31,7 +31,7 @@
     <section class="section">
         <div class="container">
             <h1 class="title">
-                MailerLite Pop-ups demo
+                MailerLite Pop-ups demo <span data-value="mailerLiteUtilVersion"></span>
             </h1>
             <p class="subtitle">
                 by Sygnal Technology Group
@@ -53,9 +53,9 @@
 
                 <div>
 
-                    <button class="button is-black" id="alerts1">Re-open closed pop-ups</button>
+                    <button class="button is-black" id="button1">Re-open closed pop-ups</button>
 
-                    <button class="button is-black" id="alerts2" style="">Re-open closed pop-ups ( auto-hiding button )</button>
+                    <button class="button is-black" id="button2" style="">Re-open closed pop-ups ( auto-hiding button )</button>
 
                 </div>
 
@@ -97,6 +97,12 @@
     <script src="../../dist/mailerlite-util.js"></script>
 
     <script>
+
+        // Instantiate MailerLiteUtil object
+        var mailerLite = new MailerLiteUtil({
+            logging: true, // enable logging to console
+        });
+
         $(function () {
 
             refreshUI();
@@ -104,34 +110,42 @@
                 function () {
                     refreshUI();
                 },
-                1000  // 1 sec refresh
+                500  // 0.5 sec refresh
+            );
+
+            // Display MailerLiteUtil version
+            $("*[data-value='mailerLiteUtilVersion']").text(
+                mailerLite.getVersion()
             );
 
         });
 
-        $("#alerts1").click(function () {
-            reOpenAllMailerLitePopups();
+        // Re-open all popups on Button 1 click
+        $("#button1").click(function () {
+            mailerLite.reOpenAllPopups();
         });
 
-        $("#alerts2").click(function () {
-            reOpenAllMailerLitePopups();
+        // Re-open all popups on Button 1 click
+        $("#button2").click(function () {
+            mailerLite.reOpenAllPopups();
         });
 
         function refreshUI() {
-            $("#popupCount").text(
-                mailerLitePopupsCount()
-            );
 
+            // Display popup count
             $("*[data-value='mailerLitePopupsCount']").text(
-                mailerLitePopupsCount()
+                mailerLite.popupsCount()
             );
 
+            // Display whether any popups were found
             $("*[data-value='mailerLitePopupsExist']").text(
-                mailerLitePopupsExist()
+                mailerLite.popupsExist()
             );
 
-            $("#alerts2").css("visibility",
-                mailerLitePopupsExist() ? "visible" : "hidden");
+            // Hide/show the button accordingly
+            $("#button2").css("visibility",
+                mailerLite.popupsExist() ? "visible" : "hidden");
+
         }
 
     </script>
