@@ -24,3 +24,15 @@ function reOpenAllMailerLitePopups() {
     })
 
 }
+
+function mailerLitePopupsCount() {
+
+    var mailerLitePopups = $('iframe[id*="ml-webforms-popup-"]');
+
+    return mailerLitePopups.length;
+}
+
+function mailerLitePopupsExist() {
+
+    return mailerLitePopupsCount() > 0;
+}

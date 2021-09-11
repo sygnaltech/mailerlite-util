@@ -48,10 +48,27 @@
                 <ol>
                     <li>A pop-up will appear</li>
                     <li>Close it</li>
-                    <li>Re-open it</li>
+                    <li>Click the button to re-open it</li>
                 </ol>
 
-                <button class="button is-black" id="alerts">Re-open closed pop-ups</button>
+                <div>
+
+                    <button class="button is-black" id="alerts1">Re-open closed pop-ups</button>
+
+                    <button class="button is-black" id="alerts2" style="">Re-open closed pop-ups ( auto-hiding button )</button>
+
+                </div>
+
+                <br />
+
+                <h3>Helper functions</h3>
+
+                <ul>
+                    <li>mailerLitePopupsCount() = <span data-value="mailerLitePopupsCount">(undefined)</span></li>
+                    <li>mailerLitePopupsExist() = <span data-value="mailerLitePopupsExist">(undefined)</span></li>
+                </ul>
+
+                <p><b>There are <span id="popupCount">(count)</span> MailerLite popups detected.</b></p>
 
             </div>
         </div>
@@ -82,11 +99,41 @@
     <script>
         $(function () {
 
-            $("#alerts").click(function () {
-                reOpenAllMailerLitePopups();
-            });
+            refreshUI();
+            setInterval(
+                function () {
+                    refreshUI();
+                },
+                1000  // 1 sec refresh
+            );
 
         });
+
+        $("#alerts1").click(function () {
+            reOpenAllMailerLitePopups();
+        });
+
+        $("#alerts2").click(function () {
+            reOpenAllMailerLitePopups();
+        });
+
+        function refreshUI() {
+            $("#popupCount").text(
+                mailerLitePopupsCount()
+            );
+
+            $("*[data-value='mailerLitePopupsCount']").text(
+                mailerLitePopupsCount()
+            );
+
+            $("*[data-value='mailerLitePopupsExist']").text(
+                mailerLitePopupsExist()
+            );
+
+            $("#alerts2").css("visibility",
+                mailerLitePopupsExist() ? "visible" : "hidden");
+        }
+
     </script>
 
 </body>
