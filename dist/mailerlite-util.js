@@ -1,5 +1,5 @@
 
-// v1.0
+// v1.1
 // Sygnal Technology Group
 // http://sygnal.com
 
@@ -25,6 +25,7 @@ function reOpenAllMailerLitePopups() {
 
 }
 
+// Returns the number of MailerLite popups found
 function mailerLitePopupsCount() {
 
     var mailerLitePopups = $('iframe[id*="ml-webforms-popup-"]');
@@ -32,6 +33,7 @@ function mailerLitePopupsCount() {
     return mailerLitePopups.length;
 }
 
+// Returns true if at least oen MailerLite popup was found
 function mailerLitePopupsExist() {
 
     return mailerLitePopupsCount() > 0;
