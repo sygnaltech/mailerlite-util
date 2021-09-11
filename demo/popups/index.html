@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>MailerLite Pop-Up Utils</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- MailerLite Universal -->
+    <!-- IMPORTANT, INSERT YOUR OWN MAILERLITE POP-UP SCRIPT HERE -->
+    <!-- configure it to display on all sites, or to include e.g. http://localhost:80 or whatever you've configured for local testing '-->
+    <script>
+        (function (m, a, i, l, e, r) {
+            m['MailerLiteObject'] = e; function f() {
+                var c = { a: arguments, q: [] }; var r = this.push(c); return "number" != typeof r ? r : f.bind(c.q);
+            }
+            f.q = f.q || []; m[e] = m[e] || f.bind(f.q); m[e].q = m[e].q || f.q; r = a.createElement(i);
+            var _ = a.getElementsByTagName(i)[0]; r.async = 1; r.src = l + '?v' + (~~(new Date().getTime() / 1000000));
+            _.parentNode.insertBefore(r, _);
+        })(window, document, 'script', 'https://static.mailerlite.com/js/universal.js', 'ml');
+
+        var ml_account = ml('accounts', '2984599', 'v5n8h6f4z5', 'load');
+    </script>
+    <!-- End MailerLite Universal -->
+
+</head>
+<body>
+
+    <section class="section">
+        <div class="container">
+            <h1 class="title">
+                MailerLite Pop-ups demo
+            </h1>
+            <p class="subtitle">
+                by Sygnal Technology Group
+            </p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="content">
+
+                <h2>Using the demo</h2>
+
+                <ol>
+                    <li>A pop-up will appear</li>
+                    <li>Close it</li>
+                    <li>Re-open it</li>
+                </ol>
+
+                <button class="button is-black" id="alerts">Re-open closed pop-ups</button>
+
+            </div>
+        </div>
+    </section>
+
+
+    <section class="section">
+        <div class="container">
+            <div class="content">
+
+                <h2>Setting up the demo</h2>
+
+                <ol>
+                    <li>Paste in your mailerlite configuration into the HEAD section, replacing the one there.</li>
+                    <li>Build a <b>pop-up promotion</b> in mailer lite</li>
+                    <li>Configure the pop-up to show every time, so that you can refresh the page to re-display it.</li>
+                    <li>Configure it to show on all sites, or specifically target it to your demo hosting location <i>as your web browser sees it</i>.<br/>
+                    e.g. http://localhost:81</li>
+                </ol>
+
+            </div>
+        </div>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" type="text/javascript" crossorigin="anonymous"></script>
+    <script src="../../dist/mailerlite-utils.js"></script>
+
+    <script>
+        $(function () {
+
+            $("#alerts").click(function () {
+                reOpenAllMailerLitePopups();
+            });
+
+        });
+    </script>
+
+</body>
+</html>
+
